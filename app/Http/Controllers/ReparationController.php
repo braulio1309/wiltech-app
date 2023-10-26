@@ -44,7 +44,6 @@ class ReparationController extends Controller
         if ($request->hasFile('img_solution')) {
             $imgSolutionPath = $request->file('img_solution')->store('reparation_images');
         }
-        dd('aaa');
         // Crear una nueva reparación en la base de datos
         $reparation = Reparation::create([
             'state' => $request->input('state'),

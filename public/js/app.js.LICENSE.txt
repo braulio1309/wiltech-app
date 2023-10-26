@@ -1,21 +1,17 @@
-/* @cc_on!@ */
-
-/* flatpickr v4.6.6, @license MIT */
-
 /*!
-  * Bootstrap v5.0.0-alpha1 (https://getbootstrap.com/)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Bootstrap v5.0.0-beta3 (https://getbootstrap.com/)
+  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 
 /*!
-  * vuefire v2.2.4
+  * vuefire v2.2.5
   * (c) 2020 Eduardo San Martin Morote
   * @license MIT
   */
 
 /*!
- * BootstrapVue Icons, generated from Bootstrap Icons 1.0.0-alpha5
+ * BootstrapVue Icons, generated from Bootstrap Icons 1.2.2
  *
  * @link https://icons.getbootstrap.com/
  * @license MIT
@@ -23,24 +19,13 @@
  */
 
 /*!
- * Cropper.js v1.5.7
+ * Cropper.js v1.5.11
  * https://fengyuanchen.github.io/cropperjs
  *
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2020-05-23T05:23:00.081Z
- */
-
-/*!
- * Sizzle CSS Selector Engine v2.3.5
- * https://sizzlejs.com/
- *
- * Copyright JS Foundation and other contributors
- * Released under the MIT license
- * https://js.foundation/
- *
- * Date: 2020-03-14
+ * Date: 2021-02-17T11:53:27.572Z
  */
 
 /*!
@@ -75,28 +60,14 @@
  */
 
 /*!
- * jQuery JavaScript Library v3.5.1
- * https://jquery.com/
- *
- * Includes Sizzle.js
- * https://sizzlejs.com/
- *
- * Copyright JS Foundation and other contributors
- * Released under the MIT license
- * https://jquery.org/license
- *
- * Date: 2020-05-04T22:49Z
- */
-
-/*!
- * vue-i18n v8.21.0 
- * (c) 2020 kazuya kawaguchi
+ * vue-i18n v8.24.3 
+ * (c) 2021 kazuya kawaguchi
  * Released under the MIT License.
  */
 
 /*!
- * vuex v3.5.1
- * (c) 2020 Evan You
+ * vuex v3.6.2
+ * (c) 2021 Evan You
  * @license MIT
  */
 
@@ -126,21 +97,6 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
   * https://github.com/linusborg/portal-vue
   * 
  */
-
-/*! *****************************************************************************
-    Copyright (c) Microsoft Corporation.
-
-    Permission to use, copy, modify, and/or distribute this software for any
-    purpose with or without fee is hereby granted.
-
-    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-    PERFORMANCE OF THIS SOFTWARE.
-    ***************************************************************************** */
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -180,6 +136,8 @@ and limitations under the License.
 
 /*! eve */
 
+/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
+
 /*! no static exports found */
 
 /*!****************************!*\
@@ -203,13 +161,13 @@ and limitations under the License.
   \*****************************************/
 
 /**
-  * vee-validate v3.3.9
+  * vee-validate v3.4.5
   * (c) 2020 Abdelrahman Awad
   * @license MIT
   */
 
 /**
-  * vue-class-component v7.2.5
+  * vue-class-component v7.2.6
   * (c) 2015-present Evan You
   * @license MIT
   */
@@ -332,7 +290,5 @@ and limitations under the License.
 /*@cc_on!@*/
 
 //! moment.js
-
-//! moment.js language configuration
 
 //! moment.js locale configuration
