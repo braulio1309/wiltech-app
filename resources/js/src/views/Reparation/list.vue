@@ -38,9 +38,8 @@
                     <input type="text" v-model="data.item.brand" v-else class="form-control">
                   </template>
                   <template v-slot:cell(action)="data">
-                    <b-button variant=" iq-bg-success mr-1 mb-1" size="sm"><i class="ri-ball-pen-fill m-0"></i></b-button>
+                    <b-button variant=" iq-bg-success mr-1 mb-1" size="sm" @click="sendDetails(data)"><i class="ri-ball-pen-fill m-0"></i></b-button>
 
-                    <b-button variant=" iq-bg-danger" size="sm"><i class="ri-delete-bin-line m-0"></i></b-button>
                   </template>
                 </b-table>
               </b-col>
@@ -89,22 +88,22 @@ export default {
 
       const brand = localStorage.getItem('brand');
       const model = localStorage.getItem('model');
-      const params = {
-        brand: brand,
-        model:model
-      };
-      console.log(params)
+     
       axios.get('/api/reparations/'+brand+'/'+model)
         .then(response => {
           // Manejar la respuesta exitosa
           console.log('Respuesta exitosa:', response.data.reparations);
           this.rows = response.data.reparations;
-          console.log(this.rows)
         })
         .catch(error => {
           // Manejar errores
           console.error('Error en la solicitud:', error);
         });
+    },
+    sendDetails(data){
+      console.log(data.item.id)
+      this.$router.push({ name: 'reparation.show', params: { id: data.item.id } })
+
     }
   },
   filters: {

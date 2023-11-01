@@ -3,12 +3,12 @@
     <div class="iq-sidebar-logo d-flex justify-content-between">
       <router-link :to="{ name: 'dashboard.home-1' }">
         <div class="iq-light-logo">
-          <img src="../../../../assets/images/logo-wil.png" class="img-fluid" alt="logo">
         </div>
         <div class="iq-dark-logo">
           <img src="../../../../assets/images/logo-dark.gif" class="img-fluid" alt="logo">
         </div>
-        <span >{{ appName }}</span>
+        <img src="../../../../assets/images/logofix.png" class="img-fluid" alt="logo">
+
       </router-link>
       <div class="iq-menu-bt-sidebar">
         <div class="iq-menu-bt align-self-center">

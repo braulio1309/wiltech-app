@@ -8,7 +8,7 @@
                             <div class="row">
                                 <h4>Selecciona la marca y el modelo</h4>
                                 <div class="col-sm-12">
-                                    <b-form-group label="Analisis" label-for="email1">
+                                    <b-form-group label="Marca" label-for="email1">
                                         <input type="text" v-model="brand" class="form-control" required="">
 
                                     </b-form-group>
@@ -17,7 +17,7 @@
                             <div class="row">
                                 <h4></h4>
                                 <div class="col-sm-12">
-                                    <b-form-group label="Analisis" label-for="email1">
+                                    <b-form-group label="Modelo" label-for="email1">
                                         <input type="text" v-model="model" class="form-control" required="">
 
                                     </b-form-group>

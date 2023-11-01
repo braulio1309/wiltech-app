@@ -2,7 +2,7 @@
   
   {
     "title": "Dashboard",
-    "name": "sidebar.dashboard1",
+    "name": "Escritorio",
     "is_heading": false,
     "is_active": false,
     "link": {
@@ -13,8 +13,8 @@
     "icon": "ri-home-4-line"
   },
   {
-    "title": "Crear",
-    "name": "Crear",
+    "title": "Registrar reparación",
+    "name": "Registrar reparación",
     "is_heading": false,
     "is_active": false,
     "link": {
@@ -25,8 +25,8 @@
     "icon": "ri-home-4-line"
   },
   {
-    "title": "Lista",
-    "name": "Lista",
+    "title": "Reparaciones documentadas",
+    "name": "Reparaciones documentadas",
     "is_heading": false,
     "is_active": false,
     "link": {
@@ -37,8 +37,20 @@
     "icon": "ri-home-4-line"
   },
   {
-    "title": "Filtros",
-    "name": "Filtros",
+    "title": "Buscar reparación",
+    "name": "Buscar reparación",
+    "is_heading": false,
+    "is_active": false,
+    "link": {
+      "name": "reparation.filters"
+    },
+    "class_name": "",
+    "is_icon_class": true,
+    "icon": "ri-home-4-line"
+  },
+  {
+    "title": "Diagnostico Tool",
+    "name": "Diagnostico Tool",
     "is_heading": false,
     "is_active": false,
     "link": {

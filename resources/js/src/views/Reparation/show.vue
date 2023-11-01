@@ -5,41 +5,43 @@
                 <iq-card>
                     <tab-nav :pills="true" class="nav-fill mb-3" id="pills-tab-1">
                         <tab-nav-items :active="true" id="pills-home-tab-fill" href="#pills-home-fill"
-                            ariaControls="pills-home-fill" role="tab" :ariaSelected="true" title="Diagnostico" />
+                            ariaControls="pills-home-fill" role="tab" :ariaSelected="true" title="Diagnóstico" />
                         <tab-nav-items :active="false" id="pills-profile-tab-fill" href="#pills-profile-fill"
-                            ariaControls="pills-profile-fill" role="tab" :ariaSelected="false" title="Analisis" />
+                            ariaControls="pills-profile-fill" role="tab" :ariaSelected="false" title="Análisis" />
                         <tab-nav-items :active="false" id="pills-contact-tab-fill" href="#pills-contact-fill"
-                            ariaControls="pills-contact-fill" role="tab" :ariaSelected="false" title="Solucion" />
+                            ariaControls="pills-contact-fill" role="tab" :ariaSelected="false" title="Solución" />
                     </tab-nav>
                     <tab-content id="pills-tabContent-1" class="mt-0">
                         <tab-content-item :active="true" id="pills-home-fill" aria-labelled-by="pills-home-tab-fill">
                             <div class="container">
                                 <div class="card">
                                     <div class="row">
-                                        <h4>Estado fisico del equipo</h4>
+                                        <h4>1. Estado fisico del equipo</h4>
                                         <div class="col-sm-6">
                                             <b-form-group label="Describe el estado del equipo" label-for="email1">
-                                                <b-form-textarea id="exampleFormControlTextarea1"
-                                                    rows="5" readonly value="Estado fisico regular"></b-form-textarea>
+                                                <b-form-textarea id="exampleFormControlTextarea1" rows="5" readonly
+                                                    v-model="reparation.state"></b-form-textarea>
                                             </b-form-group>
                                         </div>
                                         <div class="col-sm-6">
                                             <b-form-group label="Pruebas" label-for="email1">
-                                                <b-img :src="require('../../assets/images/small/img-1.jpg')" fluid alt="Responsive image"></b-img>
+                                                <b-img :src="require('../../../../../storage/app/'+reparation.img_state)" fluid
+                                                    alt="Responsive image"></b-img>
                                             </b-form-group>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <h4>Conecta la fuente y observa si carga</h4>
+                                        <h4>2. Conecta la fuente y observa si carga</h4>
                                         <div class="col-sm-6">
                                             <b-form-group label="Observaciones" label-for="email1">
-                                                <b-form-textarea id="exampleFormControlTextarea1"
-                                                    rows="5" readonly value="Informacion de la fuente actual"></b-form-textarea>
+                                                <b-form-textarea id="exampleFormControlTextarea1" rows="5" readonly
+                                                v-model="reparation.observation"></b-form-textarea>
                                             </b-form-group>
                                         </div>
                                         <div class="col-sm-6">
                                             <b-form-group label="Pruebas" label-for="email1">
-                                                <b-img :src="require('../../assets/images/small/img-1.jpg')" fluid alt="Responsive image"></b-img>
+                                                <b-img :src="require('../../../../../storage/app/'+reparation.img_observation)" fluid
+                                                    alt="Responsive image"></b-img>
                                             </b-form-group>
                                         </div>
                                     </div>
@@ -51,11 +53,11 @@
                             <div class="container">
                                 <div class="card">
                                     <div class="row">
-                                        <h4>Anota tus observaciones</h4>
+                                        <h4>3. Anota tus observaciones</h4>
                                         <div class="col-sm-12">
                                             <b-form-group label="Analisis" label-for="email1">
-                                                <b-form-textarea id="exampleFormControlTextarea1"
-                                                    rows="5" readonly value="Observaciones del equipo"></b-form-textarea>
+                                                <b-form-textarea id="exampleFormControlTextarea1" rows="5" readonly
+                                                v-model="reparation.analysis"></b-form-textarea>
                                             </b-form-group>
                                         </div>
                                     </div>
@@ -65,15 +67,17 @@
                         <tab-content-item :active="false" id="pills-contact-fill" aria-labelled-by="pills-contact-tab-fill">
                             <div class="container">
                                 <div class="row">
-                                    <h4>Describe la solucion encontrada</h4>
+                                    <h4>4. Describe la solucion encontrada</h4>
                                     <div class="col-sm-6">
                                         <b-form-group label="Observaciones" label-for="email1">
-                                            <b-form-textarea id="exampleFormControlTextarea1"
-                                                    rows="5" readonly value="La solucion fue remover ciertos componentes"></b-form-textarea>                                        </b-form-group>
+                                            <b-form-textarea id="exampleFormControlTextarea1" rows="5" readonly
+                                            v-model="reparation.solution"></b-form-textarea>
+                                        </b-form-group>
                                     </div>
                                     <div class="col-sm-6">
                                         <b-form-group label="Pruebas" label-for="email1">
-                                            <b-img :src="require('../../assets/images/small/img-1.jpg')" fluid alt="Responsive image"></b-img>
+                                            <b-img :src="require('../../../../../storage/app/'+reparation.img_solution)" fluid
+                                                alt="Responsive image"></b-img>
                                         </b-form-group>
                                     </div>
                                 </div>
@@ -88,17 +92,21 @@
 </template>
 <script>
 import { core } from '../../config/pluginInit'
+import axios from 'axios';
 
 export default {
     name: 'FormLayout',
     mounted() {
-        core.index()
+        core.index();
+        this.getReparation();
+
     },
     data() {
         return {
             selectedAge: '0-18',
             selected: ['select-1'],
             selected3: null,
+            reparation: '',
             options1: [
                 { value: '0-18', text: '0-18' },
                 { value: '18-26', text: '18-26' },
@@ -132,6 +140,20 @@ export default {
                 { value: '2', text: 'Two' },
                 { value: '3', text: 'Three' }
             ]
+        }
+    },
+    methods: {
+        getReparation() {
+            axios.get('/api/reparations/'+ this.$route.params.id)
+                .then(response => {
+                    // Manejar la respuesta exitosa
+                    console.log('Respuesta exitosa:', response.data.reparation);
+                    this.reparation = response.data.reparation;
+                })
+                .catch(error => {
+                    // Manejar errores
+                    console.error('Error en la solicitud:', error);
+                });
         }
     }
 }

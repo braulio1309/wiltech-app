@@ -64,4 +64,13 @@ class ReparationController extends Controller
         // Puedes devolver una respuesta de éxito
         return response()->json(['message' => 'Reparation created successfully'], 201);
     }
+
+    public function show($id)
+    {
+        // Obtener todas las reparaciones con relaciones de usuario
+        $reparations = Reparation::where('id', $id)->with('user')->first();
+
+        // Devolver la lista de reparaciones en formato JSON
+        return response()->json(['reparation' => $reparations]);
+    }
 }

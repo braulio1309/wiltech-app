@@ -250,7 +250,7 @@ const formChildRoute = (prop) => [
     meta: { auth: true, name: 'Reparation List' },
   },
   {
-    path: '/reparation/detail',
+    path: '/reparation/detail/:id',
     name: 'reparation.show',
     component: reparationShow,
     meta: { auth: true, name: 'Reparation show' },
