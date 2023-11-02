@@ -80,7 +80,7 @@ export default {
 
       // Realizar una solicitud POST a la URL de inicio de sesión
       axios
-        .post(process.env.MIX_SENTRY_DSN_API+'/api/auth/login', loginData)
+        .post('/api/auth/login', loginData)
         .then(response => {
             this.$store.dispatch('Setting/authUserAction', {
             auth: true,
