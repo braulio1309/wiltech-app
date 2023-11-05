@@ -16,13 +16,9 @@
       </div>
       <nav class="navbar navbar-expand-lg navbar-light p-0">
 
-        <b-navbar-toggle target="nav-collapse" class="">
-          <i class="ri-menu-3-line"></i>
-        </b-navbar-toggle>
         <div class="iq-menu-bt align-self-center" v-if="$route.meta.layout !== 'two-sidebar'">
           <div class="wrapper-menu" @click="sidebarMini">
-            <div class="main-circle"><i class="ri-arrow-left-s-line"></i></div>
-            <div class="hover-circle"><i class="ri-arrow-right-s-line"></i></div>
+            <div class="main-circle"><i class="ri-menu-3-line"></i></div>
           </div>
         </div>
         <b-collapse id="nav-collapse" is-nav>

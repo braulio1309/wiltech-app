@@ -126,4 +126,30 @@ class JwtController extends Controller
     {
         return auth()->guard('jwt');
     }
+
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        if (!$user) {
+            return response()->json(['message' => 'Usuario no encontrado'], 404);
+        }
+
+        // Validar y actualizar los campos si se proporcionan en la solicitud
+        if ($request->has('name')) {
+            $user->name = $request->input('name');
+        }
+
+        if ($request->has('email')) {
+            $user->email = $request->input('email');
+        }
+
+        if ($request->has('password')) {
+            $user->password = bcrypt($request->input('password'));
+        }
+
+        $user->save();
+
+        return response()->json(['message' => 'Usuario actualizado con éxito', 'user' => $user]);
+    }
 }

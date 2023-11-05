@@ -22,12 +22,13 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('login', 'Auth\JwtController@login');
     Route::post('logout', 'Auth\JwtController@logout');
     Route::post('register', 'Auth\JwtController@register');
+    Route::put('update/{id}', 'Auth\JwtController@update');
     Route::post('refresh', 'Auth\JwtController@refresh');
     Route::post('me', 'Auth\JwtController@me');
-
 });
-Route::resource('reparations', ReparationController::class);
-Route::get('reparations/{brand}/{model}', 'ReparationController@search');
+Route::get('reparations/{id}', 'ReparationController@show');
+Route::get('reparations/user/{id}', 'ReparationController@searchUser');
+Route::get('reparations/{brand?}/{model?}/{fail?}', 'ReparationController@search');
 Route::post('reparations/create', 'ReparationController@create');
 
 

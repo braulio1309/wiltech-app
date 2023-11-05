@@ -25,7 +25,7 @@ class CreateReparationsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('brand');
             $table->string('model');
-
+            $table->string('fail');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

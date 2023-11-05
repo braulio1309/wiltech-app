@@ -6,9 +6,7 @@
           <template v-slot:headerTitle>
             <h4 class="card-title">Lista de reparaciones</h4>
           </template>
-          <template v-slot:headerAction>
-            <b-button variant="primary">Añadir nueva</b-button>
-          </template>
+         
           <template v-slot:body>
             <b-row>
               <b-col md="12" class="table-responsive" v-if="rows.length > 0">
@@ -86,10 +84,14 @@ export default {
   methods: {
     getReparations() {
 
-      const brand = localStorage.getItem('brand');
-      const model = localStorage.getItem('model');
-     
-      axios.get('/api/reparations/'+brand+'/'+model)
+      const brand = this.$route.params.brand;
+      const model = this.$route.params.model;
+      const fail = this.$route.params.fail;
+      let query = ''
+      if(brand != undefined){
+          query = brand+'/'+model+'/'+fail ;
+      }
+      axios.get('/api/reparations/'+query)
         .then(response => {
           // Manejar la respuesta exitosa
           console.log('Respuesta exitosa:', response.data.reparations);

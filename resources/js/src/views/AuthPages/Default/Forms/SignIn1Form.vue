@@ -1,23 +1,26 @@
 <template>
   <ValidationObserver ref="form" v-slot="{ handleSubmit }">
     <form class="mt-4" novalidate @submit.prevent="handleSubmit(onSubmit)">
+      <div v-if="error" class="alert alert-danger">
+        Datos incorrectos, intente de nuevo.
+      </div>
       <ValidationProvider vid="email" name="E-mail" rules="required|email" v-slot="{ errors }">
         <div class="form-group">
           <label for="emailInput">Email </label>
           <input type="email" :class="'form-control mb-0' +(errors.length > 0 ? ' is-invalid' : '')"
                  id="emailInput" aria-describedby="emailHelp"
-                 v-model="user.email" placeholder="Enter email" required>
+                 v-model="user.email" placeholder="Ingrese su email" required>
           <div class="invalid-feedback">
             <span>{{ errors[0] }}</span>
           </div>
         </div>
       </ValidationProvider>
-      <ValidationProvider vid="password" name="Password" rules="required" v-slot="{ errors }">
+      <ValidationProvider vid="password" name="Contraseña" rules="required" v-slot="{ errors }">
         <div class="form-group">
           <label for="passwordInput">Contraseña</label>
-          <router-link to="/auth/password-reset1" class="float-right">
+          <!--<router-link to="/auth/password-reset1" class="float-right">
             Forgot password?
-          </router-link>
+          </router-link>-->
           <input type="password"  :class="'form-control mb-0' +(errors.length > 0 ? ' is-invalid' : '')"
                  id="passwordInput"
                  v-model="user.password" placeholder="Password" required>
@@ -31,6 +34,15 @@
           <label class="custom-control-label" :for="formType">Recuerdame</label>
         </div>
         <button type="submit" class="btn btn-primary float-right">Iniciar sesión</button>
+      </div>
+      <div class="sign-info">
+          <span class="dark-color d-inline-block line-height-2">
+            ¿No tienes cuenta?
+            <a href="/auth/sign-up1" class="iq-waves-effect pr-4">
+                Registrarse
+            </a>
+          </span>
+         <!-- <social-login-form></social-login-form> -->
       </div>
     </form>
   </ValidationObserver>
@@ -49,7 +61,8 @@ export default {
     user: {
       email: '',
       password: ''
-    }
+    },
+    error: false
   }),
   mounted () {
     this.user.email = this.$props.email
@@ -98,8 +111,9 @@ export default {
           this.$router.push({ name: 'dashboard.home-1' })
         })
         .catch(error => {
-          // Manejar cualquier error que pueda ocurrir durante la solicitud
+          this.error = true;
           console.error('Error de inicio de sesión', error);
+          
         });
     },
    

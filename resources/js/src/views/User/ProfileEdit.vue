@@ -8,10 +8,10 @@
               <template v-slot:body>
                 <div class="iq-edit-list">
                   <tab-nav :pills="true" class="iq-edit-profile d-flex">
-                    <tab-nav-items class="col-md-3 p-0" :active="true" href="#personal-information" title="Personal Information" />
-                    <tab-nav-items class="col-md-3 p-0" :active="false" href="#chang-pwd" title=" Change Password" />
-                    <tab-nav-items class="col-md-3 p-0" :active="false" href="#emailandsms" title="Email and SMS" />
-                    <tab-nav-items class="col-md-3 p-0" :active="false" href="#manage-contact" title="Manage Contact" />
+                    <tab-nav-items class="col-md-3 p-0" :active="true" href="#personal-information"
+                      title="Información personal" />
+                    <tab-nav-items class="col-md-3 p-0" :active="false" href="#chang-pwd" title="Cambiar contraseña" />
+
                   </tab-nav>
                 </div>
               </template>
@@ -20,13 +20,13 @@
           <b-col lg="12">
             <div class="iq-edit-list-data">
               <tab-content id="pills-tabContent-2">
-                <tab-content-item :active="true" id="personal-information" >
+                <tab-content-item :active="true" id="personal-information">
                   <iq-card>
                     <template v-slot:headerTitle>
-                      <h4 class="card-title">Personal Information</h4>
+                      <h4 class="card-title">Información personal</h4>
                     </template>
                     <template v-slot:body>
-                        <b-form-group class="row align-items-center">
+                      <!--<b-form-group class="row align-items-center">
                           <b-col md="12">
                             <div class="profile-img-edit">
                               <b-img :src="user.profile_image" class="profile-pic height-150 width-150" alt="profile-pic"/>
@@ -39,177 +39,69 @@
                               </div>
                             </div>
                           </b-col>
+                        </b-form-group>-->
+                      <b-row align-v="center">
+                        <b-form-group class="col-md-12" label="Nombre completo" label-for="fname">
+                          <ValidationProvider name="Nombre completo" rules="required" v-slot="{ errors }">
+                            <b-form-input v-model="user.name" type="text" placeholder="First Name"
+                              :class="(errors.length > 0 ? ' is-invalid' : '')"></b-form-input>
+                            <div class="invalid-feedback">
+                              <span>{{ errors[0] }}</span>
+                            </div>
+                          </ValidationProvider>
                         </b-form-group>
-                        <b-row align-v="center">
-                          <b-form-group class="col-md-6" label="First Name" label-for="fname">
-                            <ValidationProvider name="First name" rules="required" v-slot="{ errors }">
-                              <b-form-input v-model="user.fname" type="text" placeholder="First Name" :class="(errors.length > 0 ? ' is-invalid' : '')"></b-form-input>
-                              <div class="invalid-feedback">
-                                <span>{{ errors[0] }}</span>
-                              </div>
-                            </ValidationProvider>
-                          </b-form-group>
-                          <b-form-group class="col-md-6" label="Last Name" label-for="lname">
-                            <ValidationProvider name="Last name" rules="required" v-slot="{ errors }">
-                              <b-form-input v-model="user.lname" type="text" placeholder="Last Name" :class="(errors.length > 0 ? ' is-invalid' : '')"></b-form-input>
-                              <div class="invalid-feedback">
-                                <span>{{ errors[0] }}</span>
-                              </div>
-                            </ValidationProvider>
-                          </b-form-group>
 
-                          <b-form-group class="col-md-6" label="Username" label-for="uname">
-                            <ValidationProvider name="User name" rules="required" v-slot="{ errors }">
-                              <b-form-input v-model="user.username" type="text" placeholder="Username" :class="(errors.length > 0 ? ' is-invalid' : '')"></b-form-input>
-                              <div class="invalid-feedback">
-                                <span>{{ errors[0] }}</span>
-                              </div>
-                            </ValidationProvider>
-                          </b-form-group>
-                          <b-form-group class="col-sm-6" label="Gender:" label-class="d-block">
-                            <b-form-radio inline v-model="user.gender" value="male">Male</b-form-radio>
-                            <b-form-radio inline v-model="user.gender" value="female">Female</b-form-radio>
-                          </b-form-group>
-                          <b-form-group class="col-sm-6" label="Date Of Birth:" label-for="dob">
-                            <b-form-input type="date" v-model="user.dob" id="dob"></b-form-input>
-                          </b-form-group>
-                          <b-form-group class="col-md-6" label="City:" label-for="uname">
-                            <b-form-input v-model="user.city" type="text" placeholder="City"></b-form-input>
-                          </b-form-group>
-                          <b-form-group class="col-sm-6" label-for="exampleFormControlSelect4" label="State:">
-                            <b-form-select plain v-model="user.state" :options="states" id="exampleFormControlSelect4">
-                            </b-form-select>
-                          </b-form-group>
-                          <b-form-group class="col-sm-6" label-for="exampleFormControlSelect3" label="Country:">
-                            <b-form-select plain v-model="user.country" :options="countries" id="exampleFormControlSelect3">
-                            </b-form-select>
-                          </b-form-group>
-                          <b-form-group class="col-sm-12" label="Address:">
-                            <b-form-textarea name="address" v-model="user.address1" style="line-height: 22px;" rows="5">
-                            </b-form-textarea>
-                          </b-form-group>
-                        </b-row>
-                        <b-button type="submit" variant="primary" class="mr-2">Submit</b-button>
-                        <b-button type="reset" variant="none" class="iq-bg-danger">Cancel</b-button>
+                        <b-form-group class="col-md-12" label="Email" label-for="uname">
+                          <ValidationProvider name="User name" rules="required" v-slot="{ errors }">
+                            <b-form-input v-model="user.email" type="email" placeholder="Email"
+                              :class="(errors.length > 0 ? ' is-invalid' : '')"></b-form-input>
+                            <div class="invalid-feedback">
+                              <span>{{ errors[0] }}</span>
+                            </div>
+                          </ValidationProvider>
+                        </b-form-group>
+
+                      </b-row>
+                      <b-button type="submit" variant="primary" class="mr-2" @click="saveData">Guardar</b-button>
                     </template>
                   </iq-card>
                 </tab-content-item>
                 <tab-content-item :active="false" id="chang-pwd">
                   <iq-card>
                     <template v-slot:headerTitle>
-                      <h4 class="card-title">Change Password</h4>
+                      <h4 class="card-title">Cambiar contraseña</h4>
                     </template>
                     <template v-slot:body>
-                        <b-form-group>
-                          <label for="cpass">Current Password:</label>
-                          <b-link href="javascripe:void();" class="float-right">Forgot Password</b-link>
-                          <b-form-input @focusout="changePassword()" type="password" id="cpass" v-model="currentPassword"></b-form-input>
-                        </b-form-group>
-                        <b-form-group class="col-md-6" label="New Password:" label-for="pass">
-                          <ValidationProvider name="Password" rules="confirmed:repeat_password" v-slot="{ errors }">
-                            <b-form-input v-model="user.password" type="password" placeholder="Password" :class="(errors.length > 0 ? ' is-invalid' : '')"></b-form-input>
-                            <div class="invalid-feedback">
-                              <span>{{ errors[0] }}</span>
-                            </div>
-                          </ValidationProvider>
-                        </b-form-group>
-                        <b-form-group class="col-md-6" label="Repeat Password:" label-for="rpass">
-                          <ValidationProvider vid="repeat_password" name="Repeat Password" rules="required" v-slot="{ errors }">
-                            <b-form-input v-model="user.repeat_password" type="password" placeholder="Repeat Password" :class="(errors.length > 0 ? ' is-invalid' : '')"></b-form-input>
-                            <div class="invalid-feedback">
-                              <span>{{ errors[0] }}</span>
-                            </div>
-                          </ValidationProvider>
-                        </b-form-group>
-                        <b-button type="submit" variant="primary" class="mr-2">Submit</b-button>
-                        <b-button type="reset" variant="none" class="iq-bg-danger">Cancel</b-button>
+                      <b-form-group>
+                        <label for="cpass">Contraseña actual:</label>
+                        <!--<b-link href="javascripe:void();" class="float-right">Forgot Password</b-link>-->
+                        <b-form-input @focusout="changePassword()" type="password" id="cpass"
+                          v-model="currentPassword"></b-form-input>
+                      </b-form-group>
+                      <b-form-group class="col-md-6" label="Nueva contraseña:" label-for="pass">
+                        <ValidationProvider name="Password" rules="confirmed:repeat_password" v-slot="{ errors }">
+                          <b-form-input v-model="user.password" type="password" placeholder="Contraseña"
+                            :class="(errors.length > 0 ? ' is-invalid' : '')"></b-form-input>
+                          <div class="invalid-feedback">
+                            <span>{{ errors[0] }}</span>
+                          </div>
+                        </ValidationProvider>
+                      </b-form-group>
+                      <b-form-group class="col-md-6" label="Repita la contraseña:" label-for="rpass">
+                        <ValidationProvider vid="repeat_password" name="Repeat Password" rules="required"
+                          v-slot="{ errors }">
+                          <b-form-input v-model="user.repeat_password" type="password" placeholder="Repetir contraseña"
+                            :class="(errors.length > 0 ? ' is-invalid' : '')"></b-form-input>
+                          <div class="invalid-feedback">
+                            <span>{{ errors[0] }}</span>
+                          </div>
+                        </ValidationProvider>
+                      </b-form-group>
+                      <b-button type="submit" variant="primary" class="mr-2" @click="savePassword">Guardar</b-button>
                     </template>
                   </iq-card>
                 </tab-content-item>
-                <tab-content-item :active="false" id="emailandsms">
-                  <iq-card>
-                    <template v-slot:headerTitle>
-                      <h4 class="card-title">Email and SMS</h4>
-                    </template>
-                    <template v-slot:body>
-                        <div class="form-group row align-items-center">
-                          <label class="col-md-3" for="emailnotification">Email Notification:</label>
-                          <div class="col-md-9 custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="emailnotification" checked="">
-                            <label class="custom-control-label" for="emailnotification"></label>
-                          </div>
-                        </div>
-                        <div class="form-group row align-items-center">
-                          <label class="col-md-3" for="smsnotification">SMS Notification:</label>
-                          <div class="col-md-9 custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="smsnotification" checked="">
-                            <label class="custom-control-label" for="smsnotification"></label>
-                          </div>
-                        </div>
-                        <div class="form-group row align-items-center">
-                          <label class="col-md-3" for="npass">When To Email</label>
-                          <div class="col-md-9">
-                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="email01">
-                              <label class="custom-control-label" for="email01">You have new notifications.</label>
-                            </div>
-                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="email02">
-                              <label class="custom-control-label" for="email02">You're sent a direct message</label>
-                            </div>
-                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="email03" checked="">
-                              <label class="custom-control-label" for="email03">Someone adds you as a connection</label>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="form-group row align-items-center">
-                          <label class="col-md-3" for="npass">When To Escalate Emails</label>
-                          <div class="col-md-9">
-                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="email04">
-                              <label class="custom-control-label" for="email04"> Upon new order.</label>
-                            </div>
-                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="email05">
-                              <label class="custom-control-label" for="email05"> New membership approval</label>
-                            </div>
-                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="email06" checked="">
-                              <label class="custom-control-label" for="email06"> Member registration</label>
-                            </div>
-                          </div>
-                        </div>
-                        <b-button type="submit" variant="primary" class="mr-2">Submit</b-button>
-                        <b-button type="reset" variant="none" class="iq-bg-danger">Cancel</b-button>
-                    </template>
-                  </iq-card>
-                </tab-content-item>
-                <tab-content-item :active="false" id="manage-contact">
-                  <iq-card>
-                    <template v-slot:headerTitle>
-                      <h4 class="card-title">Manage Contact</h4>
-                    </template>
-                    <template v-slot:body>
-                      <b-form>
-                        <b-form-group>
-                          <label for="contact_no">Contact Number:</label>
-                          <b-form-input id="contact_no" type="text" v-model="user.mobile_no"></b-form-input>
-                        </b-form-group>
-                        <b-form-group>
-                          <label for="email">Email:</label>
-                          <b-form-input id="email" type="text" v-model="user.email"></b-form-input>
-                        </b-form-group>
-                        <b-form-group>
-                          <label for="url">Url:</label>
-                          <b-form-input id="url" type="text" v-model="user.url"></b-form-input>
-                        </b-form-group>
-                        <b-button type="submit" variant="primary" class="mr-2">Submit</b-button>
-                        <b-button type="reset" variant="none" class="iq-bg-danger">Cancel</b-button>
-                      </b-form>
-                    </template>
-                  </iq-card>
-                </tab-content-item>
+
               </tab-content>
             </div>
           </b-col>
@@ -220,19 +112,15 @@
 </template>
 <script>
 import { core } from '../../config/pluginInit'
-import { db } from '../../config/firebase'
+import axios from 'axios';
 
 export default {
   name: 'ProfileEdit',
-  mounted () {
-    core.index()
+  mounted() {
+    core.index();
+    this.actualInfo();
   },
-  firestore () {
-    return {
-      user: db.collection('users').doc(this.$route.params.id)
-    }
-  },
-  data () {
+  data() {
     return {
       user: {
         fname: '',
@@ -273,7 +161,7 @@ export default {
     }
   },
   methods: {
-    onSubmit () {
+    onSubmit() {
       this.user.name = this.user.fname + ' ' + this.user.lname
 
       // Update user
@@ -297,6 +185,48 @@ export default {
       }
     },
     changePassword: function () {
+    },
+    saveData() {
+      let data = {
+        name: this.user.name,
+        email: this.user.email
+      }
+      let user = JSON.parse(localStorage.getItem('user'));
+
+      axios.put('/api/auth/update/' + user.id, data, {
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+        }
+      })
+        .then(response => {
+          // Handle success
+          console.log('user updated:', response.data)
+          localStorage.setItem('user', JSON.stringify(response.data.user))
+        })
+        .catch(error => {
+          // Handle error
+          console.error('Error creating reparation:', error)
+        })
+    },
+    savePassword() {
+      let data = {
+        password: this.user.password,
+      }
+      let user = JSON.parse(localStorage.getItem('user'));
+      axios.put('/api/auth/update/' + user.id, data)
+        .then(response => {
+          // Handle success
+          console.log('user updated:', response.data)
+        })
+        .catch(error => {
+          // Handle error
+          console.error('Error creating reparation:', error)
+        })
+    },
+    actualInfo() {
+      this.user.name = JSON.parse(localStorage.getItem('user')).name;
+      this.user.email = JSON.parse(localStorage.getItem('user')).email;
+
     }
   }
 }

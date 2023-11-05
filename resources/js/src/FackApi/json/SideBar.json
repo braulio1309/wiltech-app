@@ -22,7 +22,7 @@
     },
     "class_name": "",
     "is_icon_class": true,
-    "icon": "ri-home-4-line"
+    "icon": "ri-phone-line"
   },
   {
     "title": "Reparaciones documentadas",
@@ -34,7 +34,7 @@
     },
     "class_name": "",
     "is_icon_class": true,
-    "icon": "ri-home-4-line"
+    "icon": "ri-file-list-3-line"
   },
   {
     "title": "Buscar reparación",
@@ -46,7 +46,7 @@
     },
     "class_name": "",
     "is_icon_class": true,
-    "icon": "ri-home-4-line"
+    "icon": "ri-zoom-in-line"
   },
   {
     "title": "Diagnostico Tool",
@@ -58,6 +58,6 @@
     },
     "class_name": "",
     "is_icon_class": true,
-    "icon": "ri-home-4-line"
+    "icon": "ri-check-line"
   }
 ]

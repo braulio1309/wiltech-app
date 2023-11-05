@@ -244,7 +244,7 @@ const formChildRoute = (prop) => [
     meta: { auth: true, name: 'Reparation' },
   },
   {
-    path: '/reparation',
+    path: '/reparation/:phone?/:model?/:fail?',
     name: 'reparation.list',
     component: reparationList,
     meta: { auth: true, name: 'Reparation List' },
@@ -428,7 +428,7 @@ const appChildRoute = (prop) => [
 const authChildRoutes = (prop) => [
   {
     path: 'sign-in1',
-    name: prop + '.sign-in1',
+    name: 'sign-in1',
     meta: { auth: true },
     component: SignIn1
   },

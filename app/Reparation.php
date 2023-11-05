@@ -17,6 +17,7 @@ class Reparation extends Model
         'user_id',
         'brand',
         'model',
+        'fail'
     ];
 
     public function user()

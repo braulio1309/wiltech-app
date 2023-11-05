@@ -88,7 +88,7 @@
 </template>
 <script>
 import darkLoader from '../../assets/images/darkMode/dark-logo.gif'
-import loader from '../../assets/images/loader.gif'
+import loader from '../../assets/images/logo-wil.png'
 import RightSideBar from '../../components/core/rightsidebar/RightSideBar'
 import { mapActions, mapGetters } from 'vuex'
 export default {

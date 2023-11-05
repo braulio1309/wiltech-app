@@ -16,12 +16,28 @@ class ReparationController extends Controller
         // Devolver la lista de reparaciones en formato JSON
         return response()->json(['reparations' => $reparations]);
     }
-    public function search($brand, $model)
+    public function search($brand = null, $model = null, $fail = null)
     {
+        if($brand && $model && $fail){
+            $reparations = Reparation::with('user')
+            ->where('brand', 'like', '%' . $brand . '%')
+            ->where('model', 'like', '%' . $model . '%')
+            ->where('fail', 'like', '%' . $fail . '%')
+            ->get();
+        }else {
+            $reparations = Reparation::with('user')->get();
+        }
+
+        // Devolver la lista de reparaciones en formato JSON
+        return response()->json(['reparations' => $reparations]);
+    }
+    public function searchUser($id)
+    {
+        
         $reparations = Reparation::with('user')
-        ->where('brand', 'like', '%' . $brand . '%')
-        ->where('model', 'like', '%' . $model . '%')
+        ->where('user_id', '=',  $id)
         ->get();
+       
 
         // Devolver la lista de reparaciones en formato JSON
         return response()->json(['reparations' => $reparations]);
@@ -56,7 +72,8 @@ class ReparationController extends Controller
             'user_id' => $request->input('user_id'),
             'brand' => $request->input('brand'),
             'model' => $request->input('model'),
-            'user_id' => 1
+            'fail' => $request->input('fail'),
+            'user_id' => $request->input('userId')
         ]);
 
         $reparation->save();

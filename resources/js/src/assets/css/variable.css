@@ -18,7 +18,7 @@ Variable
   --iq-bg-light-color: #FDFAFF; /* pending  not give*/
   --iq-primary: hsl(253, 4%, 46%);
   --iq-primary-light: hsl(253, 4%, 61%);
-  --iq-primary-dark: hsl(253deg 61% 45%);
+  --iq-primary-dark: hsl(253, 11%, 74%);
   --iq-secondary: #FF7A29;
   --iq-secondary-light: #FFDFCC;
    --iq-secondary-dark: #CC4D00; 

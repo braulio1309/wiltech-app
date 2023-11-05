@@ -1,19 +1,9 @@
 <template>
-    <nav class="iq-float-menu">
-        <input type="checkbox" href="#" class="iq-float-menu-open" name="menu-open" id="menu-open" />
-        <label class="iq-float-menu-open-button" for="menu-open">
-            <span class="lines line-1"></span>
-            <span class="lines line-2"></span>
-            <span class="lines line-3"></span>
-        </label>
-        <button class="iq-float-menu-item bg-info"   @click="rtlChange(!rtlMode)" v-b-tooltip.hover title="Direction Mode" data-mode="rtl"><i :class="rtlMode ? 'ri-text-direction-l' : 'ri-text-direction-r'"></i></button>
-        <button class="iq-float-menu-item bg-danger" @click="darkChange(!darkMode)"   v-b-tooltip.hover title="Color Mode" id="dark-mode" data-active="true"><i :class="darkMode ? 'ri-moon-line' : 'ri-sun-line'"></i></button>
-        <button class="iq-float-menu-item bg-warning"  v-b-tooltip.hover title="Comming Soon"><i class="ri-palette-line"></i></button>
-    </nav>
+    
 </template>
 <script>
 import darkLoader from '../../assets/images/darkMode/dark-logo.gif'
-import loader from '../../assets/images/loader.gif'
+import loader from '../../assets/images/logo-wil.png'
 import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'FloatingButton',

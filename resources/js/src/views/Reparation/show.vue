@@ -4,19 +4,56 @@
             <b-col lg="12" sm="12">
                 <iq-card>
                     <tab-nav :pills="true" class="nav-fill mb-3" id="pills-tab-1">
-                        <tab-nav-items :active="true" id="pills-home-tab-fill" href="#pills-home-fill"
-                            ariaControls="pills-home-fill" role="tab" :ariaSelected="true" title="Diagnóstico" />
+                        <tab-nav-items :active="true" id="info" href="#info" ariaControls="info" role="tab"
+                            :ariaSelected="true" title="Información" />
+                        <tab-nav-items :active="false" id="pills-home-tab-fill" href="#pills-home-fill"
+                            ariaControls="pills-home-fill" role="tab" :ariaSelected="false" title="Diagnóstico" />
                         <tab-nav-items :active="false" id="pills-profile-tab-fill" href="#pills-profile-fill"
                             ariaControls="pills-profile-fill" role="tab" :ariaSelected="false" title="Análisis" />
                         <tab-nav-items :active="false" id="pills-contact-tab-fill" href="#pills-contact-fill"
                             ariaControls="pills-contact-fill" role="tab" :ariaSelected="false" title="Solución" />
                     </tab-nav>
                     <tab-content id="pills-tabContent-1" class="mt-0">
-                        <tab-content-item :active="true" id="pills-home-fill" aria-labelled-by="pills-home-tab-fill">
+                        <tab-content-item :active="true" id="info" aria-labelled-by="info">
                             <div class="container">
                                 <div class="card">
                                     <div class="row">
-                                        <h4>1. Estado fisico del equipo</h4>
+                                        <h4>1. Marca</h4>
+                                        <b-form-group >
+
+                                        <div class="col-sm-12">
+                                            <b-form-textarea id="exampleFormControlTextarea1" rows="5" readonly
+                                                v-model="reparation.brand"></b-form-textarea>
+                                        </div>
+                                        </b-form-group>
+                                    </div>
+                                    <div class="row">
+                                        <h4>2. Modelo</h4>
+                                        <div class="col-sm-12">
+                                            <b-form-group >
+                                                <b-form-textarea id="exampleFormControlTextarea1" rows="5" readonly
+                                                v-model="reparation.model"></b-form-textarea>
+                                            </b-form-group>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <h4>3. Falla</h4>
+                                        <div class="col-sm-12">
+                                            <b-form-group >
+                                                <b-form-textarea id="exampleFormControlTextarea1" rows="5" readonly
+                                                v-model="reparation.fail"></b-form-textarea>
+                                            </b-form-group>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </tab-content-item>
+                        <tab-content-item :active="false" id="pills-home-fill" aria-labelled-by="pills-home-tab-fill">
+                            <div class="container">
+                                <div class="card">
+                                    <div class="row">
+                                        <h4>4. Estado fisico del equipo</h4>
                                         <div class="col-sm-6">
                                             <b-form-group label="Describe el estado del equipo" label-for="email1">
                                                 <b-form-textarea id="exampleFormControlTextarea1" rows="5" readonly
@@ -31,7 +68,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <h4>2. Conecta la fuente y observa si carga</h4>
+                                        <h4>5. Conecta la fuente y observa si carga</h4>
                                         <div class="col-sm-6">
                                             <b-form-group label="Observaciones" label-for="email1">
                                                 <b-form-textarea id="exampleFormControlTextarea1" rows="5" readonly
@@ -53,7 +90,7 @@
                             <div class="container">
                                 <div class="card">
                                     <div class="row">
-                                        <h4>3. Anota tus observaciones</h4>
+                                        <h4>6. Anota tus observaciones</h4>
                                         <div class="col-sm-12">
                                             <b-form-group label="Analisis" label-for="email1">
                                                 <b-form-textarea id="exampleFormControlTextarea1" rows="5" readonly
@@ -67,7 +104,7 @@
                         <tab-content-item :active="false" id="pills-contact-fill" aria-labelled-by="pills-contact-tab-fill">
                             <div class="container">
                                 <div class="row">
-                                    <h4>4. Describe la solucion encontrada</h4>
+                                    <h4>7. Describe la solucion encontrada</h4>
                                     <div class="col-sm-6">
                                         <b-form-group label="Observaciones" label-for="email1">
                                             <b-form-textarea id="exampleFormControlTextarea1" rows="5" readonly
