@@ -54,7 +54,7 @@
                             <div class="row">
                                 <h4></h4>
                                 <div class="col-sm-12">
-                                    <b-form-group label="Modelo" label-for="email1">
+                                    <b-form-group label="Falla" label-for="email1">
                                         <select v-model="fail"  class="form-control" id="iphoneModels">
                                             <option value="Encendido">Encendido</option>
                                             <option value="Imagen">Imagen</option>

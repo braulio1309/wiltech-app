@@ -428,7 +428,7 @@ const appChildRoute = (prop) => [
 const authChildRoutes = (prop) => [
   {
     path: 'sign-in1',
-    name: 'sign-in1',
+    name: prop + 'sign-in1',
     meta: { auth: true },
     component: SignIn1
   },
