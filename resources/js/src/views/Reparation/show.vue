@@ -4,7 +4,7 @@
             <b-col lg="12" sm="12">
                 <iq-card>
                     <tab-nav :pills="true" class="nav-fill mb-3" id="pills-tab-1">
-                        <tab-nav-items :active="true" id="info" href="#info" ariaControls="info" role="tab"
+                        <tab-nav-items :active="true" id="info-tab" href="#info" ariaControls="info" role="tab"
                             :ariaSelected="true" title="Información" />
                         <tab-nav-items :active="false" id="pills-home-tab-fill" href="#pills-home-fill"
                             ariaControls="pills-home-fill" role="tab" :ariaSelected="false" title="Diagnóstico" />
@@ -13,8 +13,8 @@
                         <tab-nav-items :active="false" id="pills-contact-tab-fill" href="#pills-contact-fill"
                             ariaControls="pills-contact-fill" role="tab" :ariaSelected="false" title="Solución" />
                     </tab-nav>
-                    <tab-content id="pills-tabContent-1" class="mt-0">
-                        <tab-content-item :active="true" id="info" aria-labelled-by="info">
+                    <tab-content id="pills-tabContent-1" class="mt-0" v-if="reparation != null">
+                        <tab-content-item :active="true" id="info" aria-labelled-by="info-tab" >
                             <div class="container">
                                 <div class="card">
                                     <div class="row">
@@ -62,8 +62,9 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <b-form-group label="Pruebas" label-for="email1">
-                                                <b-img :src="require('../../../../../storage/app/'+reparation.img_state)" fluid
+                                                <b-img v-if="reparation.img_state" :src="require('../../../../../storage/app/'+reparation.img_state)" fluid
                                                     alt="Responsive image"></b-img>
+                                                <span v-else class="alert alert-info">No se cargaron pruebas</span>
                                             </b-form-group>
                                         </div>
                                     </div>
@@ -77,8 +78,9 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <b-form-group label="Pruebas" label-for="email1">
-                                                <b-img :src="require('../../../../../storage/app/'+reparation.img_observation)" fluid
+                                                <b-img v-if="reparation.img_observation" :src="require('../../../../../storage/app/'+reparation.img_observation)" fluid
                                                     alt="Responsive image"></b-img>
+                                                <span v-else class="alert alert-info">No se cargaron pruebas</span>
                                             </b-form-group>
                                         </div>
                                     </div>
@@ -113,8 +115,9 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <b-form-group label="Pruebas" label-for="email1">
-                                            <b-img :src="require('../../../../../storage/app/'+reparation.img_solution)" fluid
+                                            <b-img v-if="reparation.img_solution" :src="require('../../../../../storage/app/'+reparation.img_solution)" fluid
                                                 alt="Responsive image"></b-img>
+                                            <span v-else class="alert alert-info">No se cargaron pruebas</span>
                                         </b-form-group>
                                     </div>
                                 </div>
@@ -143,7 +146,7 @@ export default {
             selectedAge: '0-18',
             selected: ['select-1'],
             selected3: null,
-            reparation: '',
+            reparation: null,
             options1: [
                 { value: '0-18', text: '0-18' },
                 { value: '18-26', text: '18-26' },

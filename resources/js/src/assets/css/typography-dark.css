@@ -81,7 +81,7 @@ body.dark {background: var(--iq-dark-body-bg); color: var(--iq-dark-body-text)}
 /* .dark .navbar-list .iq-show  .active{background-color: var(--iq-primary) !important;} */
 .dark .dark-btn-primary{background-color: var(--iq-dark-body-bg) !important; color: var(--iq-dark-icon-color);}
 .dark .dark-btn-primary:hover{background-color: var(--iq-primary) !important; color: var(--iq-dark-body-text);}
-.dark .navbar-list li a:hover {background-color: var(--iq-dark-hover-bg) !important; color: white;}
+.dark .navbar-list li a:hover {background-color: var(--iq-primary) !important; color: white;}
 .dark .nav-item span.count-mail {background: var(--iq-dark-icon-color) !important;}
 .dark .iq-sidebar.sidebar-dark-blue .iq-menu-bt { background: var(--iq-dark-hover-bg); }
 

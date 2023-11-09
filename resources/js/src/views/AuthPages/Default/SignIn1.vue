@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="mb-0">Inicio de sesión</h1>
-    <p>Ingresa al panel administrativo.</p>
+    <p>Empieza a registrar tus reparaciones.</p>
     <tab-nav :pills="true" class="nav-fill mb-3" id="pills-tab-1">
       
       

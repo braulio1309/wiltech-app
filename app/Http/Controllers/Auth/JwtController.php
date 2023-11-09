@@ -19,7 +19,7 @@ class JwtController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:jwt', ['except' => ['login','register','validator']]);
+        $this->middleware('auth:jwt', ['except' => ['login','register','validator', 'update']]);
     }
 
     /**
@@ -130,7 +130,6 @@ class JwtController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-
         if (!$user) {
             return response()->json(['message' => 'Usuario no encontrado'], 404);
         }
@@ -144,10 +143,21 @@ class JwtController extends Controller
             $user->email = $request->input('email');
         }
 
+        if ($request->has('bio')) {
+            $user->bio = $request->input('bio');
+        }
+
+        if ($request->has('phone')) {
+            $user->phone = $request->input('phone');
+        }
+
         if ($request->has('password')) {
             $user->password = bcrypt($request->input('password'));
         }
+        if ($request->hasFile('profile_image')) {
 
+            $user->profile_image = $request->file('profile_image')->store('profiles');
+        }
         $user->save();
 
         return response()->json(['message' => 'Usuario actualizado con éxito', 'user' => $user]);

@@ -40,7 +40,7 @@ Variable
   --iq-black: #000000;  
   --iq-cyan: #0cd2e3;  
   --iq-icon-color: #8c91b6;  /* pending icon and text */
-  --iq-light-primary: hsl(240, 2%, 71%);
+  --iq-light-primary: hsl(240, 43%, 1%);
   --iq-light-secondary: #FF7A2940;
   --iq-light-success: #06C27040;  
   --iq-light-danger: #FF292940;   
@@ -66,7 +66,7 @@ Variable
   --iq-dark-card-bg: rgba(36,36, 62,1);
   --iq-dropdown-bg: #fff;
   --iq-dropdown-border: #fff;
-  --iq-dark-hover-bg:rgba(41,42,72,1);
+  --iq-dark-hover-bg:rgb(10, 11, 19);
   --iq-dark-icon-color:rgba(122,102,153,1);
   --iq-dark-shadow-1:rgba(24,20,31,.1);
   --iq-dark-shadow-2:rgba(24,20,31,.15)

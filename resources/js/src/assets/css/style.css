@@ -198,7 +198,7 @@ a:hover { text-decoration: none; }
 /*---------------------------------------------------------------------
                                Sign In
 -----------------------------------------------------------------------*/
-.sign-in-detail { color: var(--iq-white); background: rgba(130, 122, 243, 1) !important; }
+.sign-in-detail { color: var(--iq-white); background: '' !important; }
 .sign-in-page { height: 100vh; }
 .sign-in-detail { padding: 100px; height: 100vh; }
 .sign-in-logo { display: inline-block; width: 100%; }
@@ -255,8 +255,8 @@ a:hover { text-decoration: none; }
 .iq-sidebar-menu .iq-menu li a .iq-arrow-right { margin-right: 0; margin-left: auto;  }
 .iq-sidebar-menu .iq-menu li a .badge { position: absolute; right: 15px; -webkit-transition: all 0.9s ease-out 0s; -moz-transition: all 0.9s ease-out 0s; -ms-transition: all 0.9s ease-out 0s; -o-transition: all 0.9s ease-out 0s; transition: all 0.9s ease-out 0s; }
 .iq-sidebar-menu .iq-menu > li.active { border-bottom: none; margin-bottom: 10px; }
-.iq-sidebar-menu .iq-menu li a:hover { color: var(--iq-primary); }
-.iq-sidebar-menu .iq-menu li.active>a { color: var(--iq-white); text-decoration: none; background: var(--iq-primary);  text-decoration: none; }
+.iq-sidebar-menu .iq-menu li a:hover { background: var(--iq-primary); color:white; }
+.iq-sidebar-menu .iq-menu li.active>a { color: var(--iq-white); text-decoration: none; background: hsl(0deg 0% 0.54%);;  text-decoration: none; }
 .iq-search-bar .searchbox .search-link { position: absolute; right: 15px; top: 2px; font-size: 16px; }
 .iq-sidebar-menu .iq-menu li a[aria-expanded="true"] { color: var(--iq-white); text-decoration: none; background: var(--iq-primary);transition: none; border-radius: 0 8px 0 0; }
 .iq-sidebar-menu .iq-menu li a[aria-expanded="true"] .iq-arrow-right { transform: rotate(90deg); }
@@ -317,7 +317,7 @@ body.sidebar-main .iq-sidebar:hover .iq-sidebar-menu .iq-menu li ul.iq-submenu-d
 .navbar-list li>a { font-size: 18px; padding: 0 15px; line-height: 73px; color: var(--iq-primary); display: block; min-height: 75px; }
 .navbar-list li:last-child>a { padding-right: 20px; }
 .menu-tag { position: absolute; background: var(--iq-body-text); color: var(--iq-white); display: inline-block; top: 18px; left: 18px; font-size: 12px; border-radius: 90px; line-height: normal; height: 18px; width: 18px; line-height: 18px; text-align: center; display: inline-block; }
-.navbar-list li a:hover { text-decoration: none; background-color: var(--iq-light-primary); color: var(--iq-primary); }
+.navbar-list li a:hover { text-decoration: none; background-color: var(--iq-primary); color: white; }
 .navbar-list li > a > img { width: 50px; height: 50px; }
 .navbar-list li.iq-nav-user { display: flex; align-items: flex-start; }
 .navbar-list li.iq-nav-user span { flex: 1; font-size: 14px; }
@@ -1082,7 +1082,7 @@ Product Detail Page
 -----------------------------------------------------------------------*/
 .product-description { padding: 20px 20px 0; }
 .ratting { margin: 0 0 10px; font-size: 18px; color: var(--iq-primary); }
-.additional-product-action .product-action .add-to-cart a { width: auto; padding: 0 20px; background: rgba(130, 122, 243, 1) !important; color: var(--iq-white); }
+.additional-product-action .product-action .add-to-cart a { width: auto; padding: 0 20px; background: url('../images/login/login-1.jpg')  !important; color: var(--iq-white); }
 .additional-product-action .product-action .wishlist a { width: auto; padding: 0 20px; background: var(--iq-body-bg); color: var(--iq-primary); }
 .description-tabs { margin-top: 100px; }
 .iq-product-cover img, .iq-additional_slider img { border-radius: 5px; }

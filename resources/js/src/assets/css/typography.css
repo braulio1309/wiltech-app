@@ -125,7 +125,7 @@ loading
 /*----------------------------------------------
 Background Color
 ------------------------------------------------*/
-.bg-primary, .badge-primary { color: var(--iq-white); background: var(--iq-primary) !important;}
+.bg-primary, .badge-primary { color: var(--iq-white); background: hsl(0deg 0% 0.54%) !important;}
 .bg-secondary, .badge-secondary { color: var(--iq-white); background-color: var(--iq-secondary) !important; }
 .bg-success, .badge-success { color: var(--iq-white); background: var(--iq-success);}
 .bg-danger, .badge-danger { color: var(--iq-white); background: var(--iq-danger);}
@@ -286,7 +286,7 @@ Buttons
 .iq-sign-btn:hover { color: var(--iq-white); background: var(--iq-danger); }
 
 /*--------------*/
-.btn-primary { background: var(--iq-primary); border-color: var(--iq-primary); }
+.btn-primary { background: rgba(5, 8, 9, 0.9); border-color: var(--iq-primary); }
 .btn-secondary { background-color: var(--iq-secondary); border-color: var(--iq-secondary) ; }
 .btn-success { background-color: var(--iq-success); border-color: var(--iq-success); }
 .btn-danger { background-color: var(--iq-danger); border-color: var(--iq-danger); }
@@ -297,7 +297,7 @@ Buttons
 
 /*--------------*/
 .btn-secondary:hover {background-color: var(--iq-secondary-dark) ; border-color: var(--iq-secondary-dark);}
-.btn-primary:hover { background: var(--iq-primary-dark); border-color: var(--iq-primary); border-color: var(--iq-primary); }
+.btn-primary:hover { background: var(--iq-primary); border-color: var(--iq-primary); border-color: var(--iq-primary); }
 a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover { background: var(--iq-primary-dark) !important; border-color: var(--iq-primary); border-color: var(--iq-primary); }
 
 /*------------------*/

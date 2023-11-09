@@ -100,12 +100,12 @@ export default {
     return {
       columns: [
         { label: 'Título', key: 'state', class: 'text-left' },
-        { label: 'Diagnostico', key: 'observation', class: 'text-left' },
-        { label: 'Solucion', key: 'solution', class: 'text-left' },
+        { label: 'Diagnóstico', key: 'observation', class: 'text-left' },
+        { label: 'Solución', key: 'solution', class: 'text-left' },
         { label: 'Marca', key: 'brand', class: 'text-left' },
         { label: 'Modelo', key: 'model', class: 'text-left' },
         { label: 'Fecha', key: 'created_at', class: 'text-left' },
-        { label: 'Action', key: 'action', class: 'text-center' }
+        { label: 'Accion', key: 'action', class: 'text-center' }
       ],
       rows: []
     }

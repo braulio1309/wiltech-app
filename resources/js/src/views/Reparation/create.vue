@@ -4,9 +4,9 @@
             <b-col lg="12" sm="12">
                 <iq-card>
                     <tab-nav :pills="true" class="nav-fill mb-3" id="pills-tab-1">
-                        <tab-nav-items :active="true" id="info" href="#info" ariaControls="info" role="tab"
-                            :ariaSelected="true" title="Información" />
-                        <tab-nav-items :active="false" id="pills-home-tab-fill" href="#pills-home-fill"
+                        <tab-nav-items :active="true" id="info-tab" href="#info" ariaControls="info" role="tab"
+                            :ariaSelected="true" title="Información" class="tab"/>
+                        <tab-nav-items :active="false" id="pills-home-tab-fill" href="#pills-home-fill" 
                             ariaControls="pills-home-fill" role="tab" :ariaSelected="false" title="Diagnóstico" />
                         <tab-nav-items :active="false" id="pills-profile-tab-fill" href="#pills-profile-fill"
                             ariaControls="pills-profile-fill" role="tab" :ariaSelected="false" title="Análisis" />
@@ -14,24 +14,24 @@
                             ariaControls="pills-contact-fill" role="tab" :ariaSelected="false" title="Solución" />
                     </tab-nav>
                     <tab-content id="pills-tabContent-1" class="mt-0">
-                        <tab-content-item :active="true" id="info" aria-labelled-by="info">
+                        <tab-content-item :active="true" id="info" aria-labelled-by="info-tab">
                             <div class="container">
                                 <div class="card">
                                     <div class="row">
-                                        <h4>1. Marca</h4>
-                                        <b-form-group >
-
+                                        <h6>1. Marca</h6>
                                         <div class="col-sm-12">
-                                            <select v-model="reparation.brand" class="form-control" id="brandSelect">
-                                                <option value="iPhone" selected>iPhone</option>
-                                            </select>
+                                            <b-form-group>
+                                                <select v-model="reparation.brand" class="form-control" id="brandSelect">
+                                                    <option value="iPhone" selected>iPhone</option>
+                                                </select>
+                                            </b-form-group>
                                         </div>
-                                        </b-form-group>
+
                                     </div>
                                     <div class="row">
-                                        <h4>2. Modelo</h4>
+                                        <h6>2. Modelo</h6>
                                         <div class="col-sm-12">
-                                            <b-form-group >
+                                            <b-form-group>
                                                 <select v-model="reparation.model" class="form-control" id="iphoneModels">
                                                     <option value="iPhone 7">iPhone 7</option>
                                                     <option value="iPhone 8">iPhone 8</option>
@@ -52,14 +52,19 @@
                                                     <option value="iPhone 13 Mini">iPhone 13 Mini</option>
                                                     <option value="iPhone 13 Pro">iPhone 13 Pro</option>
                                                     <option value="iPhone 13 Pro Max">iPhone 13 Pro Max</option>
+                                                    <option value="iPhone 14">iPhone 14</option>
+                                                    <option value="iPhone 14 Plus">iPhone 14 Plus</option>
+                                                    <option value="iPhone 14 Pro">iPhone 14 Pro</option>
+                                                    <option value="iPhone 14 Pro Max">iPhone 14 Pro Max</option>
+                                                    <option value="iPhone 15 Pro Max">iPhone 15 Pro Max</option>
                                                 </select>
                                             </b-form-group>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <h4>3. Falla</h4>
+                                        <h6>3. Falla</h6>
                                         <div class="col-sm-12">
-                                            <b-form-group >
+                                            <b-form-group>
                                                 <select v-model="reparation.fail" class="form-control" id="iphoneModels">
                                                     <option value="Encendido">Encendido</option>
                                                     <option value="Imagen">Imagen</option>
@@ -77,6 +82,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <button v-if="reparation.brand && reparation.model && reparation.fail" class="btn btn-primary" @click="nextTab">Siguiente</button>
+                                </div>
                             </div>
 
                         </tab-content-item>
@@ -84,7 +92,7 @@
                             <div class="container">
                                 <div class="card">
                                     <div class="row">
-                                        <h4>4. Estado fisico del equipo</h4>
+                                        <h6>4. Estado fisico del equipo</h6>
                                         <div class="col-sm-6">
                                             <b-form-group label="Describe el estado del equipo" label-for="email1">
                                                 <b-form-textarea v-model="reparation.state" id="state"
@@ -98,7 +106,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <h4>5. Conecta la fuente y observa si carga</h4>
+                                        <h6>5. Conecta la fuente y observa si carga</h6>
                                         <div class="col-sm-6">
                                             <b-form-group label="Observaciones" label-for="email1">
                                                 <b-form-textarea v-model="reparation.observation" id="observation"
@@ -112,6 +120,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <button v-if="reparation.state && reparation.observation && reparation.img_state && reparation.img_observation" class="btn btn-primary" @click="nextTab">Siguiente</button>
+                                </div>
                             </div>
 
                         </tab-content-item>
@@ -119,7 +130,7 @@
                             <div class="container">
                                 <div class="card">
                                     <div class="row">
-                                        <h4>6. Anota tus observaciones</h4>
+                                        <h6>6. Anota tus observaciones</h6>
                                         <div class="col-sm-12">
                                             <b-form-group label="Analisis" label-for="email1">
                                                 <b-form-textarea v-model="reparation.analysis" id="analysis"
@@ -128,12 +139,15 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <button v-if="reparation.analysis" class="btn btn-primary" @click="nextTab">Siguiente</button>
+                                </div>
                             </div>
                         </tab-content-item>
                         <tab-content-item :active="false" id="pills-contact-fill" aria-labelled-by="pills-contact-tab-fill">
                             <div class="container">
                                 <div class="row">
-                                    <h4>7. Describe la solución encontrada</h4>
+                                    <h6>7. Describe la solución encontrada</h6>
                                     <div class="col-sm-6">
                                         <b-form-group label="Observaciones" label-for="email1">
                                             <b-form-textarea v-model="reparation.solution" id="solution"
@@ -226,6 +240,25 @@ export default {
         },
         onFileSolution(event) {
             this.reparation.img_solution = event.target.files[0];
+        },
+        nextTab() {
+            // Encuentra la pestaña actualmente activa
+            const activeTab = document.querySelector(".nav-link.active");
+            if (activeTab) {
+                // Encuentra el índice de la pestaña activa
+                const activeTabIndex = Array.from(document.querySelectorAll(".nav-link")).indexOf(activeTab);
+                console.log(activeTabIndex)
+
+                // Calcula el índice de la siguiente pestaña
+                const nextTabIndex = (activeTabIndex + 1) % document.querySelectorAll(".nav-link").length;
+
+                // Activa la siguiente pestaña y desactiva la actual
+                activeTab.classList.remove("active");
+                Array.from(document.querySelectorAll(".nav-link"))[nextTabIndex].classList.add("active");
+                // Activa el contenido de la siguiente pestaña y desactiva el contenido de la actual
+                document.querySelector(activeTab.getAttribute("href")).classList.remove("show", "active");
+                document.querySelector(document.querySelectorAll(".nav-link")[nextTabIndex].getAttribute("href")).classList.add("show", "active");
+            }
         },
     }
 }

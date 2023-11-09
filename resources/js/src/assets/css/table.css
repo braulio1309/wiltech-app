@@ -8,13 +8,14 @@
     border-spacing: 0;
 }
 .table thead tr {
-    background: var(--iq-light-border);
+    background: #212529;
+    color: white;
 }
 .table th{
     text-transform: uppercase;
     font-weight: 400;
     letter-spacing: .2px;
-    color:#212529;
+    color:white;
     white-space: nowrap;
 }
 .table-borderless td{

@@ -9,16 +9,9 @@
               <router-view></router-view>
             </div>
           </div>
-          <div class="col-sm-6 text-center">
-            <div class="sign-in-detail text-white" :style="'background: url('+bgImageURL+') no-repeat 0 0; background-size: cover;'">
-              <Swiper :options="options">
-                <SwiperSlide class="item">
-                  <img :src="require('../../assets/images/login/login-1.jpg')"  style="height: 600px;" class="img-fluid mb-4" alt="logo">
-                  <h4 class="mb-1 text-white">Sistema de reparaciones</h4>
-                  <p>Documentación de reparaciones.</p>
-                </SwiperSlide>
-               
-              </Swiper>
+          <div class="col-sm-6 text-center" :style="'background: url('+bgImageURL+') no-repeat 0 0; background-size:  70% auto; background-position: center;'">
+            <div class="sign-in-detail text-white" >
+              
             </div>
           </div>
         </div>
@@ -30,7 +23,7 @@
 import Loader from '../../components/core/loader/Loader'
 import logo from '../../assets/images/logo-white.png'
 import { core } from '../../config/pluginInit'
-import bgImage from '../../assets/images/login/login-2.jpg'
+import bgImage from '../../assets/images/login/login-1.jpg'
 import Swiper from '../../components/core/slider/Swiper'
 import SwiperSlide from '../../components/core/slider/SwiperSlide'
 export default {

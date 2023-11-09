@@ -12,8 +12,7 @@
               <b-col md="12" class="table-responsive" v-if="rows.length > 0">
                 <b-table bordered hover :items="rows" :fields="columns" foot-clone>
                   <template v-slot:cell(state)="data">
-                    <span v-if="1">{{ data.item.state }}</span>
-                    <input type="text" v-model="data.state" v-else class="form-control">
+                    <span v-if="1" @click="sendDetails(data)" class="link-like">{{ data.item.state }}</span>
                   </template>
                   <template v-slot:cell(observation)="data">
                     <span v-if="true">{{ data.item.observation }}</span>
@@ -36,8 +35,7 @@
                     <input type="text" v-model="data.item.brand" v-else class="form-control">
                   </template>
                   <template v-slot:cell(action)="data">
-                    <b-button variant=" iq-bg-success mr-1 mb-1" size="sm" @click="sendDetails(data)"><i class="ri-ball-pen-fill m-0"></i></b-button>
-
+                    <b-button variant=" iq-bg-success mr-1 mb-1" size="sm" @click="sendDetails(data)"><i class="ri-eye-line m-0"></i></b-button>
                   </template>
                 </b-table>
               </b-col>
@@ -48,6 +46,15 @@
     </b-row>
   </b-container>
 </template>
+<style>
+  .link-like {
+  cursor: pointer; /* Cambia el cursor a estilo "mano" */
+}
+
+.link-like:hover {
+  color: black; /* Cambia el color del texto al pasar el cursor sobre el elemento */
+}
+</style>
 <script>
 import { core } from '../../config/pluginInit'
 import axios from 'axios';
@@ -81,6 +88,7 @@ export default {
       rows: []
     }
   },
+  
   methods: {
     getReparations() {
 
